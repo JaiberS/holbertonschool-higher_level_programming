@@ -1,32 +1,32 @@
 #include "lists.h"
 
 /**
- * find_listint_loop -  finds the loop in a linked list.
- * @head: the list
+ * check_cycle -  finds the loop in a linked list.
+ * @list: the list
  *
- * Return: the number of nodes in the list
+ * Return:  0 if no cycle, 1 if cycle
  */
 
-listint_t *find_listint_loop(listint_t *head)
+int check_cycle(listint_t *list)
 {
-  listint_t *slow, *fast;
-  
-  slow = head;
-  fast = head;
-  while (slow && fast && fast->next)
-    {
-      slow = slow->next;
-      fast = fast->next->next;
-      if (slow == fast && fast == head)
+	listint_t *slow, *fast;
+
+	slow = list;
+	fast = list;
+	while (slow && fast && fast->next)
 	{
-	  return (head);
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast && fast == list)
+		{
+			return (1);
+		}
+		if (slow == fast && fast != list)
+		{
+			list = list->next;
+			slow = list;
+			fast = list;
+		}
 	}
-      if (slow == fast && fast != head)
-	{
-	  head = head->next;
-	  slow = head;
-	  fast = head;
-	}
-    }
-  return (NULL);
+	return (0);
 }
