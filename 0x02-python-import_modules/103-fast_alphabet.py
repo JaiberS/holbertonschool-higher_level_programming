@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-import alphabetto
-print("Z")
+import string
+print(string.ascii_uppercase)
