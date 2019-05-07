@@ -22,10 +22,6 @@ int is_palindrome(listint_t **head)
 	for (i = 0, head2 = *head; head2 != NULL; i++, head2 = head2->next)
 	{
 		tuple[i] = head2->n;
-/**
- *		if (head2->next != NULL)
- *			tuple = _realloc(tuple, i + 1, i + 2);
- */
 	}
 	i--;
 	conf = cpalin(tuple, i, j);
@@ -57,40 +53,4 @@ int cpalin(int *s, int j, int i)
 	else
 		return (0);
 	return (r);
-}
-
-/**
- * _realloc - reallocates a memory block
- * @ptr: initial pointer
- * @old_size: initial size
- * @new_size: new size
- * Return: pointer to array
- */
-int *_realloc(int *ptr, unsigned int old_size, unsigned int new_size)
-{
-	int *clone, *relloc, *aux;
-	unsigned int i;
-
-	if (ptr != NULL)
-		clone = ptr;
-	else
-	{
-		aux = malloc(sizeof(int) * new_size);
-		return (aux);
-	}
-	if (new_size == old_size)
-		return (ptr);
-	if (new_size == 0 && ptr != NULL)
-	{ free(ptr);
-		return (0); }
-	relloc = malloc(sizeof(int) * new_size);
-	if (relloc == NULL)
-		return (0);
-	for (i = 0; i < old_size; i++)
-	{
-		*(relloc + i) = clone[i];
-	}
-	*(relloc + i) = '\0';
-	free(ptr);
-	return (relloc);
 }
