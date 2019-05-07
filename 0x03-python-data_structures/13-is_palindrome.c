@@ -16,12 +16,16 @@ int is_palindrome(listint_t **head)
 
 	if (head2 == NULL)
 		return (1);
-	tuple = malloc(sizeof(tuple));
 	for (; head2 != NULL; i++, head2 = head2->next)
+		;
+	tuple = malloc(sizeof(tuple) * i);
+	for (i = 0, head2 = *head; head2 != NULL; i++, head2 = head2->next)
 	{
 		tuple[i] = head2->n;
-		if (head2->next != NULL)
-			tuple = _realloc(tuple, i + 1, i + 2);
+/**
+ *		if (head2->next != NULL)
+ *			tuple = _realloc(tuple, i + 1, i + 2);
+ */
 	}
 	i--;
 	conf = cpalin(tuple, i, j);
