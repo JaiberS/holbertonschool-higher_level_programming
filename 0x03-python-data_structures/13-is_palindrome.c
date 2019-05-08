@@ -11,21 +11,25 @@
 
 int is_palindrome(listint_t **head)
 {
-	int *tuple, i = 0, j = 0, conf = 0;
+	int tuple[999999], i = 0, j = 0, conf = 0;
 	listint_t *head2 = *head;
 
 	if (head2 == NULL)
 		return (1);
 	for (; head2 != NULL; i++, head2 = head2->next)
 		;
-	tuple = malloc(sizeof(tuple) * i);
+/**
+ *	tuple = malloc(sizeof(tuple) * i);
+ */
 	for (i = 0, head2 = *head; head2 != NULL; i++, head2 = head2->next)
 	{
 		tuple[i] = head2->n;
 	}
 	i--;
 	conf = cpalin(tuple, i, j);
-	free(tuple);
+/**
+ *	free(tuple);
+ */
 	return (conf);
 }
 
