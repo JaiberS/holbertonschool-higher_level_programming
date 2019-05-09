@@ -13,6 +13,7 @@ def roman_to_int(roman_string):
             total += current
         else:
             total -= current
-            total *= -1
+            if total < 0:
+                total *= -1
         previous = romans.get(i, 0)
     return total
