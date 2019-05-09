@@ -1,2 +1,13 @@
 #!/usr/bin/python3
-def complex_delete(a_dictionary, value):
+def square_matrix_map(matrix=[]):
+    if matrix is not None:
+        if matrix == []:
+            return matrix
+        new_matrix = []
+        for i in range(len(matrix)):
+            new_matrix.append(list(map(square_true, matrix[i])))
+        return new_matrix
+
+
+def square_true(n):
+    return n*n
