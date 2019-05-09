@@ -6,7 +6,8 @@ def only_diff_elements(set_1, set_2):
     for i in range(len(new_list[1])):
         new_list[0].append(new_list[1][i])
     del new_list[1]
-    return new_list
+    new2_list = new_list[0]
+    return new2_list
 
 
 def true_common(set_1, set_2):
