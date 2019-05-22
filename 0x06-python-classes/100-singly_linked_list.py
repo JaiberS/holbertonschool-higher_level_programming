@@ -33,16 +33,16 @@ class Node:
 
 class SinglyLinkedList:
     def __init__(self):
-        self.head = None
+        self.__head = None
 
     def sorted_insert(self, value):
-        self.head = Node(value, self.head)
+        self.__head = Node(value, self.__head)
 
     def __str__(self):
         lista = []
-        while self.head is not None:
-            lista.append(self.head.data)
-            self.head = self.head.next_node
+        while self.__head is not None:
+            lista.append(self.__head.data)
+            self.__head = self.__head.next_node
         lista = sorted(lista)
         str0 = ''
         for i in range(len(lista) - 1):
