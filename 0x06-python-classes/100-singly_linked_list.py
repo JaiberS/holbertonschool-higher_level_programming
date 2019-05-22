@@ -45,6 +45,8 @@ class SinglyLinkedList:
             self.__head = self.__head.next_node
         lista = sorted(lista)
         str0 = ''
+        if lista == []:
+            return str0
         for i in range(len(lista) - 1):
             str0 = str0 + str(lista[i]) + '\n'
         str0 = str0 + str(lista[-1])
