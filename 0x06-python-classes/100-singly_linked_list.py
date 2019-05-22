@@ -7,7 +7,7 @@ class Node:
             self.__data = data
             self.__next_node = next_node
         else:
-            raise TypeError('next_node must be a Node Object')
+            raise TypeError('next_node must be a Node object')
 
     @property
     def data(self):
@@ -28,7 +28,7 @@ class Node:
         if value is None or type(value) == Node:
             self.__next_node = value
         else:
-            raise TypeError('next_node must be a Node Object')
+            raise TypeError('next_node must be a Node object')
 
 
 class SinglyLinkedList:
