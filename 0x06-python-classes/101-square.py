@@ -60,8 +60,8 @@ class Square:
             for j in range(self.__position[1]):
                 str0 = str0 + '\n'
             for i in range(self.__size - 1):
-                str0 = str0 + '_' * self.__position[0]
+                str0 = str0 + ' ' * self.__position[0]
                 str0 = str0 + '#' * self.__size + '\n'
-            str0 = str0 + '_' * self.__position[0]
+            str0 = str0 + ' ' * self.__position[0]
             str0 = str0 + '#' * self.__size
         return str0
