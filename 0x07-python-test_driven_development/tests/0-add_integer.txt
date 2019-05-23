@@ -1,0 +1,42 @@
+The ``0-add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``add_integer`` from the ``0-add_integer`` module:
+
+    >>> tester = __import__('0-add_integer')
+
+Now use it:
+
+    >>> tester.add_integer(2.5, 3.9)
+    5
+
+    >>> tester.add_integer(2, "School")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+    >>> tester.add_integer("School", 3)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> tester.add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> tester.add_integer(None, 3)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> tester.add_integer(2, None)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+    >>> tester.add_integer(, 3)
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+    >>> tester.add_integer(2, )
+    100
