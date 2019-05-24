@@ -1,0 +1,41 @@
+The ``3-say_my_name`` module
+======================
+
+Using ``say_my_name``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``say_my_name`` from the ``3-say_my_name`` module:
+
+    >>> tester = __import__('3-say_my_name')
+
+Now use it:
+
+    >>> tester.say_my_name("John", "Smith")
+    My name is John Smith
+
+    >>> tester.say_my_name("Bob")
+    My name is Bob 
+
+    >>> tester.say_my_name("School", 3)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> tester.say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> tester.say_my_name(None, 3)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> tester.say_my_name("Hello", None)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> tester.say_my_name(, 3)
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+    >>> tester.say_my_name("Bob", )
+    My name is Bob 
