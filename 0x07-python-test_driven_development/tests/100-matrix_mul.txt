@@ -14,6 +14,15 @@ Now use it:
     >>> tester.matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
     [[7, 10], [15, 22]]
 
+    >>> tester.matrix_mul([[1, 0, 2], [0, 2, 0], [0, 1, 3]], [[5], [-1], [0]])
+    [[5], [-2], [-1]]
+
+    >>> tester.matrix_mul([[1, -1, 1], [2, 2, 3], [-2, -3, -1]], [[1, 0, 4], [0, 2, 5], [1, 3, 0]])
+    [[2, 1, -1], [5, 13, 18], [-3, -9, -23]]
+
+    >>> tester.matrix_mul([[1, 2], [0, -1], [0, 1]], [[0, 3, 0], [3, 0, 3]])
+    [[6, 3, 6], [-3, 0, -3], [3, 0, 3]]
+
     >>> tester.matrix_mul([3, 4], [[1, 2], [3, 4]])
     Traceback (most recent call last):
     TypeError: m_a must be a list of lists
@@ -22,11 +31,19 @@ Now use it:
     Traceback (most recent call last):
     TypeError: m_b must be a list of lists
 
-    >>> tester.matrix_mul(None)
+    >>> tester.matrix_mul([[1, 2], [3, 4]], [])
+    Traceback (most recent call last):
+    TypeError: m_b must be a list of lists
+
+    >>> tester.matrix_mul([], [[3, 4]])
     Traceback (most recent call last):
     TypeError: m_a must be a list of lists
 
-    >>> tester.matrix_mul([[1, 2], [3, 4]], [])
+    >>> tester.matrix_mul(None)
+    Traceback (most recent call last):
+    TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+    >>> tester.matrix_mul([[1, 2], [3, 4]], [[4, 5], []])
     Traceback (most recent call last):
     ValueError: m_b can't be empty
 
@@ -36,17 +53,17 @@ Now use it:
 
     >>> tester.matrix_mul([[]], [[1, 2], [3, 4]])
     Traceback (most recent call last):
-    ValueError: m_b can't be empty
+    ValueError: m_a can't be empty
 
-    >>> tester.matrix_mul([], [[1, 2], [3, 4]])
+    >>> tester.matrix_mul([[3, 5], []], [[1, 2], [3, 4]])
     Traceback (most recent call last):
-    ValueError: m_b can't be empty
+    ValueError: m_a can't be empty
 
-    >>> tester.matrix_mul([[1, 2], [3, 4]], [[1, 2], "Hola"])
+    >>> tester.matrix_mul([[1, 2], [3, 4]],  "Hola")
     Traceback (most recent call last):
     TypeError: m_b must be a list
 
-    >>> tester.matrix_mul([[1, 2], "Mundo"], [[1, 2], [3, 4]])
+    >>> tester.matrix_mul(([1, 2], "Mundo"), [[1, 2], [3, 4]])
     Traceback (most recent call last):
     TypeError: m_a must be a list
 
@@ -58,6 +75,6 @@ Now use it:
     Traceback (most recent call last):
     TypeError: m_b should contain only integers or floats
 
-    >>> tester.matrix_mul([[1, 2, 3], [3, 4, 5]], [['R', 2], [3, 4]])
+    >>> tester.matrix_mul([[1, 2, 3], [3, 4, 5]], [[1, 2], [3, 4]])
     Traceback (most recent call last):
     ValueError: m_a and m_b can't be multiplied
