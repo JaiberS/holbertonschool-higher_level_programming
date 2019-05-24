@@ -1,0 +1,63 @@
+The ``100-matrix_mul`` module
+======================
+
+Using ``matrix_mul``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``matrix_mul`` from the ``100-matrix_mul`` module:
+
+    >>> tester = __import__('100-matrix_mul')
+
+Now use it:
+
+    >>> tester.matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+    [[7, 10], [15, 22]]
+
+    >>> tester.matrix_mul([3, 4], [[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
+
+    >>> tester.matrix_mul([[1, 2], [3, 4]], [3, 4])
+    Traceback (most recent call last):
+    TypeError: m_b must be a list of lists
+
+    >>> tester.matrix_mul(None)
+    Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
+
+    >>> tester.matrix_mul([[1, 2], [3, 4]], [])
+    Traceback (most recent call last):
+    ValueError: m_b can't be empty
+
+    >>> tester.matrix_mul([[1, 2], [3, 4]], [[]])
+    Traceback (most recent call last):
+    ValueError: m_b can't be empty
+
+    >>> tester.matrix_mul([[]], [[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    ValueError: m_b can't be empty
+
+    >>> tester.matrix_mul([], [[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    ValueError: m_b can't be empty
+
+    >>> tester.matrix_mul([[1, 2], [3, 4]], [[1, 2], "Hola"])
+    Traceback (most recent call last):
+    TypeError: m_b must be a list
+
+    >>> tester.matrix_mul([[1, 2], "Mundo"], [[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a list
+
+    >>> tester.matrix_mul([[1, 2], [3, 'J']], [[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    TypeError: m_a should contain only integers or floats
+
+    >>> tester.matrix_mul([[1, 2], [3, 4]], [['R', 2], [3, 4]])
+    Traceback (most recent call last):
+    TypeError: m_b should contain only integers or floats
+
+    >>> tester.matrix_mul([[1, 2, 3], [3, 4, 5]], [['R', 2], [3, 4]])
+    Traceback (most recent call last):
+    ValueError: m_a and m_b can't be multiplied
