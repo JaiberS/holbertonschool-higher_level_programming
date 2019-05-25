@@ -12,7 +12,7 @@ This is an example text file in reStructuredText format.  First import
 Now use it:
 
     >>> tester.add_integer(2.5, 3.9)
-    5
+    6
 
     >>> tester.add_integer(2.5, 3)
     5
