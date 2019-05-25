@@ -43,3 +43,7 @@ Now use it:
 
     >>> tester.say_my_name("Bob", )
     My name is Bob 
+ 
+    >>> tester.say_my_name(, )
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
