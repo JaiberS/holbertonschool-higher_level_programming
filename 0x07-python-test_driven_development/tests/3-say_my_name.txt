@@ -14,6 +14,13 @@ Now use it:
     >>> tester.say_my_name("", "")
     My name is  
 
+    >>> tester.say_my_name("", )
+    My name is  
+
+    >>> tester.say_my_name(, "")
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
     >>> tester.say_my_name("John", "Smith")
     My name is John Smith
 
