@@ -14,24 +14,31 @@ def matrix_divided(matrix, div):
     """
     >>> c = matrix_divided(matrix, 3)
     """
-    if div == 0:
-        raise ZeroDivisionError('division by zero')
-    if not isinstance(div, (int, float)):
-        raise TypeError('div must be a number')
+    if matrix is None:
+        str1 = "matrix must be a matrix (list of lists)"
+        raise TypeError(str1 + ' of integers/floats')
+    for i in range(len(matrix)):
+        if matrix[i] is None:
+            str1 = "matrix must be a matrix (list of lists)"
+            raise TypeError(str1 + ' of integers/floats')
+        for j in range(len(matrix[i])):
+            tipo = type(matrix[i][j])
+            if tipo is not int and tipo is not float:
+                str1 = "matrix must be a matrix (list of lists)"
+                raise TypeError(str1 + ' of integers/floats')
     rowlen = len(matrix[0])
     for i in range(len(matrix)):
         if len(matrix[i]) is not rowlen:
             raise TypeError('Each row of the matrix must have the same size')
-    for i in range(len(matrix)):
-        if not all(isinstance(x, int) for x in matrix[i]):
-            str1 = "matrix must be a matrix (list of lists)"
-            raise TypeError(str1 + ' of integers/floats')
-    nx = list(map(lambda its: list(map(lambda x: rup(x, div), its)), matrix))
+    if type(div) is not int and type(div) is not float:
+        raise TypeError('div must be a number')
+    if div == 0:
+        raise ZeroDivisionError('division by zero')
+    nx = list(map(lambda its: list(map(lambda x: ef(x, div), its)), matrix))
     return nx
 
 
-def rup(x, div):
-    floored = int((x / div) * 1000)
-    if floored % 10 >= 5:
-        return (int(floored / 10) + (x % div > 0)) / 100
-    return int(floored / 10) / 100
+def ef(x, div):
+    if div == float('inf') and x < 0:
+        x = x * -1
+    return round(x / div, 2)
