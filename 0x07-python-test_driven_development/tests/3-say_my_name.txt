@@ -11,6 +11,9 @@ This is an example text file in reStructuredText format.  First import
 
 Now use it:
 
+    >>> tester.say_my_name("", "")
+    My name is  
+
     >>> tester.say_my_name("John", "Smith")
     My name is John Smith
 
