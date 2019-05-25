@@ -14,6 +14,12 @@ Now use it:
     >>> tester.add_integer(2.5, 3.9)
     5
 
+    >>> tester.add_integer(2.5, 3)
+    5
+
+    >>> tester.add_integer(2, 3.9)
+    5
+
     >>> tester.add_integer(1e203874, 1e093840)
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
