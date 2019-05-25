@@ -15,7 +15,8 @@ Now use it:
     5
 
     >>> tester.add_integer(1e203874, 1e093840)
-    89
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
 
     >>> tester.add_integer(2, "School")
     Traceback (most recent call last):
