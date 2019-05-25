@@ -33,7 +33,7 @@ Now use it:
     <BLANKLINE>
     School
 
-    >>> tester.text_indentation("Holberton.School? How are you: John")
+    >>> tester.text_indentation("Holberton.School? How are you:            John")
     Holberton.
     <BLANKLINE>
     School?
