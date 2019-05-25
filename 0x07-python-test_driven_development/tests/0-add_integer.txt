@@ -14,6 +14,9 @@ Now use it:
     >>> tester.add_integer(2.5, 3.9)
     5
 
+    >>> tester.add_integer(1e203874, 1e093840)
+    89
+
     >>> tester.add_integer(2, "School")
     Traceback (most recent call last):
     TypeError: b must be an integer
