@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 def add_attribute(obj, attribute, value):
-    if isinstance(obj, (list, dict, str, int, float, tuple)):
+    if '__dict__' not in dir(obj) or '__slots__' in dir(obj):
         raise TypeError('can\'t add new attribute')
     setattr(obj, attribute, value)
