@@ -7,6 +7,6 @@ def read_lines(filename="", nb_lines=0):
             print(text, end='')
         else:
             splitted = text.split('\n')
-            while(len(splitted ) != nb_lines):
+            while(len(splitted) != nb_lines):
                 splitted.pop(-1)
             print('\n'.join(splitted))
