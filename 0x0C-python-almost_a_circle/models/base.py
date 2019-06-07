@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import json
+from os import path
 
 
 class Base:
@@ -48,3 +49,16 @@ class Base:
         dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        if not path.isfile(cls.__name__ + ".json"):
+            return []
+        ls = []
+        with open(cls.__name__ + ".json", 'r') as f:
+            todd = f.read()
+            todd = cls.from_json_string(todd)
+        for i in todd:
+            dummy = cls.create(**i)
+            ls.append(dummy)
+        return ls
