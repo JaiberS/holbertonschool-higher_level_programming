@@ -118,3 +118,12 @@ class Rectangle(Base):
             if len(args) < 5:
                 return
             self.__y = args[4]
+
+    def to_dictionary(self):
+        d = {}
+        d.setdefault('id', self.id)
+        d.setdefault('width', self.__width)
+        d.setdefault('height', self.__height)
+        d.setdefault('x', self.__x)
+        d.setdefault('y', self.__y)
+        return d
