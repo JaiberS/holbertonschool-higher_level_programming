@@ -84,9 +84,11 @@ class Rectangle(Base):
             print(' ' * self.__x + '#' * self.__width)
 
     def __str__(self):
-        str0 = "[Rectangle] (" + str(self.id) + ") " + str(self.__x) + "/"
-        str1 = str(self.__y) + " - " + str(self.__width) + "/"
-        return str0 + str1 + str(self.__height)
+        str0 = "[" + self.__class__.__name__ + "] (" + str(self.id) + ") "
+        str1 = str(self.__x) + "/" + str(self.__y) + " - " + str(self.__width)
+        if self.__class__.__name__ == 'Square':
+            return str0 + str1
+        return str0 + str1 + "/" + str(self.__height)
 
     def update(self, *args, **kwargs):
         if args is None or len(args) == 0:
