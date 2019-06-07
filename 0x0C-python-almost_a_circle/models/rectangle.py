@@ -88,19 +88,31 @@ class Rectangle(Base):
         str1 = str(self.__y) + " - " + str(self.__width) + "/"
         return str0 + str1 + str(self.__height)
 
-    def update(self, *args):
-        if len(args) < 1:
-            return
-        self.id = args[0]
-        if len(args) < 2:
-            return
-        self.__width = args[1]
-        if len(args) < 3:
-            return
-        self.__height = args[2]
-        if len(args) < 4:
-            return
-        self.__x = args[3]
-        if len(args) < 5:
-            return
-        self.__y = args[4]
+    def update(self, *args, **kwargs):
+        if args is None or len(args) == 0:
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+            if 'width' in kwargs:
+                self.__width = kwargs['width']
+            if 'height' in kwargs:
+                self.__height = kwargs['height']
+            if 'x' in kwargs:
+                self.__x = kwargs['x']
+            if 'y' in kwargs:
+                self.__y = kwargs['y']
+        else:
+            if len(args) < 1:
+                return
+            self.id = args[0]
+            if len(args) < 2:
+                return
+            self.__width = args[1]
+            if len(args) < 3:
+                return
+            self.__height = args[2]
+            if len(args) < 4:
+                return
+            self.__x = args[3]
+            if len(args) < 5:
+                return
+            self.__y = args[4]
