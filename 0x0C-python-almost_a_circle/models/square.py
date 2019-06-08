@@ -5,35 +5,22 @@ from models.rectangle import Rectangle
 class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
-        if type(size) is not int:
-            raise TypeError('width must be an integer')
-        if size <= 0:
-            raise ValueError('width must be > 0')
-        self.__size = size
 
     @property
     def size(self):
-        return self.__size
+        return super().width
 
     @size.setter
     def size(self, value):
-        if type(value) is not int:
-            raise TypeError('width must be an integer')
-        if value <= 0:
-            raise ValueError('width must be > 0')
-        self.__size = value
-
-    def __str__(self):
-        str0 = "[" + self.__class__.__name__ + "] (" + str(self.id) + ") "
-        str1 = str(self.x) + "/" + str(self.y) + " - " + str(self.__size)
-        return str0 + str1
+        super().__init__(value, value, self.x, self.y, self.id)
 
     def update(self, *args, **kwargs):
         if args is None or len(args) == 0:
             if 'id' in kwargs:
                 self.id = kwargs['id']
             if 'size' in kwargs:
-                self.__size = kwargs['size']
+                v = kwargs['size']
+                super().__init__(v, v, self.x, self.y, self.id)
             if 'x' in kwargs:
                 self.x = kwargs['x']
             if 'y' in kwargs:
@@ -44,7 +31,7 @@ class Square(Rectangle):
             self.id = args[0]
             if len(args) < 2:
                 return
-            self.__size = args[1]
+            super().__init__(args[1], args[1], self.x, self.y, self.id)
             if len(args) < 3:
                 return
             self.x = args[2]
@@ -55,7 +42,7 @@ class Square(Rectangle):
     def to_dictionary(self):
         d = {}
         d.setdefault('id', self.id)
-        d.setdefault('size', self.__size)
+        d.setdefault('size', super().width)
         d.setdefault('x', self.x)
         d.setdefault('y', self.y)
         return d
