@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import json
+import csv
 from os import path
 
 
@@ -59,6 +60,51 @@ class Base:
             todd = f.read()
             todd = cls.from_json_string(todd)
         for i in todd:
+            dummy = cls.create(**i)
+            ls.append(dummy)
+        return ls
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        ls2 = []
+        for i in list_objs:
+            ls = []
+            dic = i.to_dictionary()
+            ls.append(dic['id'])
+            if cls.__name__ == "Rectangle":
+                ls.append(dic['width'])
+                ls.append(dic['height'])
+            if cls.__name__ == "Square":
+                ls.append(dic['size'])
+            ls.append(dic['x'])
+            ls.append(dic['y'])
+            ls2.append(ls)
+        with open(cls.__name__ + ".csv", mode='w') as f:
+            csw = csv.writer(f)
+            for i in ls2:
+                csw.writerow(i)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        if not path.isfile(cls.__name__ + ".csv"):
+            return []
+        ls = []
+        with open(cls.__name__ + ".csv", 'r') as f:
+            csr = csv.reader(f)
+            csr = list(csr)
+            lsdir = []
+            for i in range(len(csr)):
+                dic = {}
+                dic.setdefault('id', int(csr[i][0]))
+                if cls.__name__ == 'Rectangle':
+                    dic.setdefault('width', int(csr[i][1]))
+                    dic.setdefault('height', int(csr[i][2]))
+                if cls.__name__ == 'Square':
+                    dic.setdefault('size', int(csr[i][1]))
+                dic.setdefault('x', int(csr[i][-2]))
+                dic.setdefault('y', int(csr[i][-1]))
+                lsdir.append(dic)
+        for i in lsdir:
             dummy = cls.create(**i)
             ls.append(dummy)
         return ls
