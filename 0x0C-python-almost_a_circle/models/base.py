@@ -39,6 +39,10 @@ class Base:
         "Save objects to json file"
         js = ""
         ls = []
+        if len(list_objs) == 0:
+            with open(cls.__name__ + ".json", mode='w') as f:
+                f.write("[]")
+                return
         for i in list_objs:
             dic = i.to_dictionary()
             ls.append(dic)
