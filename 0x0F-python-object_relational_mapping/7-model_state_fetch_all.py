@@ -7,10 +7,10 @@ from sys import argv
 
 
 if __name__ == "__main__":
-        engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                               .format(argv[1], argv[2], argv[3]),
-                               pool_pre_ping=True)
-        session = sessionmaker(bind=engine)()
-        result = session.query(State).order_by(State.id)
-        for i in result:
-            print (str(i.id) + ": " + i.name)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+                           .format(argv[1], argv[2], argv[3]),
+                           pool_pre_ping=True)
+    session = sessionmaker(bind=engine)()
+    result = session.query(State).order_by(State.id)
+    for i in result:
+        print (str(i.id) + ": " + i.name)
