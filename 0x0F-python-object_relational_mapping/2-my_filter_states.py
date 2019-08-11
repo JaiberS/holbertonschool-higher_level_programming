@@ -14,3 +14,5 @@ if __name__ == "__main__":
     items = c.fetchall()
     for i in items:
         print(i)
+    c.close()
+    db.close()
