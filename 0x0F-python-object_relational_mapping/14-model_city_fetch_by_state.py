@@ -12,6 +12,7 @@ if __name__ == "__main__":
                            .format(argv[1], argv[2], argv[3]),
                            pool_pre_ping=True)
     session = sessionmaker(bind=engine)()
-    result = session.query(City, State).filter(City.state_id == State.id).order_by(City.id)
+    result = session.query(City, State).filter(
+        City.state_id == State.id).order_by(City.id)
     for i in result:
         print(i[1].name + ": (" + str(i[0].id) + ") " + i[0].name)
