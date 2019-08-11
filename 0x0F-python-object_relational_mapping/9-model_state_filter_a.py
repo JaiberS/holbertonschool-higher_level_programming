@@ -15,4 +15,4 @@ if __name__ == "__main__":
     for i in result:
         name = i.name
         if 'a' in name:
-            print (str(i.id) + ": " + name)
+            print(str(i.id) + ": " + name)

@@ -13,6 +13,6 @@ if __name__ == "__main__":
     session = sessionmaker(bind=engine)()
     result = session.query(State).order_by(State.id)
     try:
-        print (str(result[0].id) + ": " + result[0].name)
+        print(str(result[0].id) + ": " + result[0].name)
     except IndexError:
-        print ("Nothing")
+        print("Nothing")
