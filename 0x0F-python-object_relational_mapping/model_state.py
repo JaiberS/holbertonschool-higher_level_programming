@@ -13,5 +13,6 @@ class State(Base):
     id = Column(Integer, Sequence('seq_reg_id', start=1, increment=1),
                 primary_key=True, nullable=False, unique=True)
     name = Column(String(128), nullable=False)
+
     def __init__(self, name):
         self.name = name
