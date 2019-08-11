@@ -13,6 +13,6 @@ if __name__ == "__main__":
               .format(argv[4])
     items = c.fetchall()
     for i in items:
-        print(i)
+        print("{}".format(i))
     c.close()
     db.close()
