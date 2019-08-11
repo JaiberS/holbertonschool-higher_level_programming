@@ -8,7 +8,8 @@ if __name__ == "__main__":
     db = MySQLdb.connect(passwd=argv[2], db=argv[3], user=argv[1],
                          host="localhost", port=3306)
     c = db.cursor()
-    c.execute("""SELECT * FROM states WHERE name = "{}" ORDER BY id ASC"""
+    c.execute("""SELECT * FROM states WHERE name
+    LIKE BINARY "{}" ORDER BY id ASC"""
               .format(argv[4])
     items = c.fetchall()
     for i in items:
