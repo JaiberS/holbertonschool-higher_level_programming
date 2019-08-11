@@ -12,7 +12,8 @@ if __name__ == "__main__":
     LIKE BINARY "{}" ORDER BY id ASC"""
               .format(sys.argv[4])
     items = c.fetchall()
-    for i in items:
-        print("{}".format(i))
+    if items:
+        for i in items:
+            print("{}".format(i))
     c.close()
     db.close()
