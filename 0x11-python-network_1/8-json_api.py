@@ -2,7 +2,6 @@
 """ Write a Python script that fetches https://intranet.hbtn.io/status """
 import requests
 import sys
-import pdb
 
 
 if __name__ == "__main__":
