@@ -12,7 +12,7 @@ request(args[0], function (error, response, body) {
     id = body[0].userId;
     for (let x = 0; x < body.length; x++) {
       if (body[x].userId !== id) {
-        mydict[id.toString()] = counter.toString();
+        mydict[id.toString()] = counter;
         id = body[x].userId;
         counter = 0;
       }
@@ -20,7 +20,7 @@ request(args[0], function (error, response, body) {
         counter++;
       }
     }
-    mydict[id.toString()] = counter.toString();
+    mydict[id.toString()] = counter;
     console.log(mydict);
   }
 });
